@@ -80,6 +80,7 @@
 				</div>
 			</div>
 			<div class="col2">
+
 				<div id="logo">
 					<div>
 						<a href="//tools.wmflabs.org/"><img
@@ -87,6 +88,15 @@
 							alt="Wikitech and Wikimedia Labs" height="138" width="122" /></a>
 					</div>
 				</div>
+
+				<strong>Links</strong>
+				<ul>
+					<li><a href="https://github.com/dapete42/wikilist">dapete42/wikilist</a>
+						(GitHub)</li>
+					<li><a href="https://github.com/dapete42/wikilist-deployed">dapete42/wikilist-deployed</a>
+						(GitHub)</li>
+				</ul>
+
 			</div>
 		</div>
 	</div>

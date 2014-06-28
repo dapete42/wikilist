@@ -1,6 +1,6 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+ "http://java.sun.com/dtd/web-app_2_4.dtd" >
 
 <web-app>
 
@@ -11,13 +11,14 @@
 		<servlet-class>toollabs.wikilist.WikilistServlet</servlet-class>
 	</servlet>
 
-	<welcome-file-list>
-		<welcome-file>index</welcome-file>
-	</welcome-file-list>
+	<servlet-mapping>
+		<servlet-name>wikilist</servlet-name>
+		<url-pattern>/html</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>wikilist</servlet-name>
-		<url-pattern>index</url-pattern>
+		<url-pattern>/json</url-pattern>
 	</servlet-mapping>
 
 </web-app>
