@@ -32,11 +32,21 @@ public class WikiEntry {
 
 	public JsonObject toJsonObject() {
 		final JsonObjectBuilder builder = Json.createObjectBuilder();
-		builder.add("dbname", this.dbname);
-		builder.add("lang", this.lang);
-		builder.add("name", this.name);
-		builder.add("family", this.family);
-		builder.add("url", this.url);
+		if (this.dbname != null) {
+			builder.add("dbname", this.dbname);
+		}
+		if (this.lang != null) {
+			builder.add("lang", this.lang);
+		}
+		if (this.name != null) {
+			builder.add("name", this.name);
+		}
+		if (this.family != null) {
+			builder.add("family", this.family);
+		}
+		if (this.url != null) {
+			builder.add("url", this.url);
+		}
 		return builder.build();
 	}
 
