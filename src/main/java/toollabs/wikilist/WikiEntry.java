@@ -3,11 +3,11 @@ package toollabs.wikilist;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.json.JSONObject;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 public class WikiEntry {
-
-	private final static String[] JSON_KEYS = { "dbname", "lang", "name", "family", "url" };
 
 	public final String dbname;
 
@@ -30,8 +30,14 @@ public class WikiEntry {
 		this.is_closed = rs.getInt("is_closed") != 0;
 	}
 
-	public JSONObject toJSONObject() {
-		return new JSONObject(this, JSON_KEYS);
+	public JsonObject toJsonObject() {
+		final JsonObjectBuilder builder = Json.createObjectBuilder();
+		builder.add("dbname", this.dbname);
+		builder.add("lang", this.lang);
+		builder.add("name", this.name);
+		builder.add("family", this.family);
+		builder.add("url", this.url);
+		return builder.build();
 	}
 
 }

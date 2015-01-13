@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.json.JSONArray;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -67,17 +69,17 @@ public final class WikilistServlet extends HttpServlet {
 
 		if (requestUrl.endsWith("json")) {
 
-			final JSONArray json = new JSONArray();
+			final JsonArrayBuilder builder = Json.createArrayBuilder();
 			for (WikiEntry entry : this.wikiEntries) {
-				json.put(entry.toJSONObject());
+				builder.add(entry.toJsonObject());
 			}
-
+			final JsonArray json = builder.build();
+			
 			resp.setContentType("application/json; charset=UTF8");
 
 			try (final OutputStreamWriter writer = new OutputStreamWriter(resp.getOutputStream(),
 					StandardCharsets.UTF_8)) {
-				json.write(writer);
-
+				Json.createWriter(writer).writeArray(json);
 			}
 
 		} else {
