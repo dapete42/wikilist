@@ -32,7 +32,7 @@ public class MyCnfConfig {
 
         // Primary: from $HOME
         Path myCnfFile = Paths.get(userHome, MY_CNF);
-        if (!Files.exists(myCnfFile)) {
+        if (Files.exists(myCnfFile)) {
             LOG.info("Using {} from {}", MY_CNF, myCnfFile);
         } else {
             // Secondary: from $TOOL_DATA_DIR (within container built by Build Service)
