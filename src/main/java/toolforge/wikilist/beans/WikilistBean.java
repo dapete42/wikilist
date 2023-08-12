@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import toolforge.wikilist.WikiEntry;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,10 +48,9 @@ public class WikilistBean {
     }
 
     private void fillWikiEntries() {
-        try (final Connection connection = dataSource.getConnection()) {
-            var rs = connection
-                    .prepareStatement("SELECT * FROM wiki WHERE is_closed=0 ORDER BY dbname")
-                    .executeQuery();
+        try (var connection = dataSource.getConnection();
+             var statement = connection.prepareStatement("SELECT * FROM wiki WHERE is_closed=0 ORDER BY dbname");
+             var rs = statement.executeQuery()) {
             List<WikiEntry> newWikiEntries = new ArrayList<>();
             while (rs.next()) {
                 var entry = WikiEntry.fromResultSet(rs);
