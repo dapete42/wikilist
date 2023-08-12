@@ -5,32 +5,32 @@ import jakarta.inject.Inject;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonArrayBuilder;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.extern.slf4j.Slf4j;
-import toolforge.wikilist.beans.WikilistBean;
+import toolforge.wikilist.services.WikilistService;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.Serial;
 import java.nio.charset.StandardCharsets;
 
 @ApplicationScoped
-@WebServlet(urlPatterns = {"/json"})
-@Slf4j
+@WebServlet(urlPatterns = "/json")
 public final class JsonServlet extends HttpServlet {
 
+    @Serial
+    private static final long serialVersionUID = 8675310283386696418L;
+
     @Inject
-    WikilistBean wikilistBean;
+    WikilistService wikilistService;
 
     @Override
-    public void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException,
-            IOException {
+    public void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 
         final JsonArrayBuilder builder = Json.createArrayBuilder();
-        for (WikiEntry entry : wikilistBean.getWikiEntries()) {
+        for (WikiEntry entry : wikilistService.getWikiEntries()) {
             builder.add(entry.toJsonObject());
         }
         final JsonArray json = builder.build();
@@ -46,7 +46,7 @@ public final class JsonServlet extends HttpServlet {
 
     @Override
     public long getLastModified(final HttpServletRequest req) {
-        return wikilistBean.getWikiEntriesFilledTime();
+        return wikilistService.getWikiEntriesFilledTime().toEpochMilli();
     }
 
 }
