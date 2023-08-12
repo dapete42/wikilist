@@ -1,8 +1,0 @@
-table.tablesorter {
-	width: auto;
-}
-
-table.tablesorter thead tr th,
-table.tablesorter thead tr th:hover {
-	padding-right: 21px;
-}

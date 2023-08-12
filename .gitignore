@@ -1,4 +1,16 @@
-.classpath
-.project
-.settings
-target
+# Maven
+/.mvn/wrapper/maven-wrapper.jar
+/target/
+/*/target/
+/site/
+# Eclipse
+/.classpath
+/.metadata/
+/.project
+/.settings/
+/*/.classpath
+/*/.metadata/
+/*/.project
+/*/.settings/
+# IntelliJ IDEA
+/.idea/
