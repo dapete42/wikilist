@@ -1,8 +1,6 @@
 package toolforge.wikilist;
 
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonObjectBuilder;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +25,8 @@ public class WikiEntry {
 
     private final String url;
 
-    public Boolean isClosed;
+    @JsonProperty("is_closed")
+    private Boolean isClosed;
 
     private String languageDisplay;
 
@@ -42,29 +41,6 @@ public class WikiEntry {
                 .url(rs.getString("url"))
                 .isClosed(rs.getInt("is_closed") != 0)
                 .build();
-    }
-
-    public JsonObject toJsonObject() {
-        final JsonObjectBuilder builder = Json.createObjectBuilder();
-        if (dbname != null) {
-            builder.add("dbname", dbname);
-        }
-        if (lang != null) {
-            builder.add("lang", lang);
-        }
-        if (name != null) {
-            builder.add("name", name);
-        }
-        if (family != null) {
-            builder.add("family", family);
-        }
-        if (url != null) {
-            builder.add("url", url);
-        }
-        if (isClosed != null) {
-            builder.add("is_closed", isClosed);
-        }
-        return builder.build();
     }
 
 }
