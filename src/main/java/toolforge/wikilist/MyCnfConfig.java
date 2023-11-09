@@ -27,8 +27,8 @@ public class MyCnfConfig {
 
     public MyCnfConfig() throws IOException {
 
-        String userHome = System.getProperty("user.home");
-        String toolDataDir = System.getenv("TOOL_DATA_DIR");
+        final String userHome = System.getProperty("user.home");
+        final String toolDataDir = System.getenv("TOOL_DATA_DIR");
 
         // Primary: from $HOME
         Path myCnfFile = Paths.get(userHome, MY_CNF);
@@ -63,17 +63,19 @@ public class MyCnfConfig {
         this.user = properties.getProperty("user");
         if (this.user == null || this.user.isEmpty()) {
             LOG.error(String.format("Property '%s' missing or empty", "user"));
-        }
-        if (this.user.startsWith("'") && this.user.endsWith("'")) {
-            this.user = this.user.substring(1, this.user.length() - 1);
+        } else {
+            if (this.user.startsWith("'") && this.user.endsWith("'")) {
+                this.user = this.user.substring(1, this.user.length() - 1);
+            }
         }
 
         this.password = properties.getProperty("password");
         if (this.password == null || this.password.isEmpty()) {
             LOG.error(String.format("Property '%s' missing or empty", "password"));
-        }
-        if (this.password.startsWith("'") && this.password.endsWith("'")) {
-            this.password = this.password.substring(1, this.password.length() - 1);
+        } else {
+            if (this.password.startsWith("'") && this.password.endsWith("'")) {
+                this.password = this.password.substring(1, this.password.length() - 1);
+            }
         }
 
     }

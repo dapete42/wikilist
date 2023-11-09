@@ -16,7 +16,7 @@ public class MyCnfCredentialsProvider implements CredentialsProvider {
 
     @Override
     public Map<String, String> getCredentials(String credentialsProviderName) {
-        MyCnfConfig config;
+        final MyCnfConfig config;
         try {
             config = new MyCnfConfig();
         } catch (IOException e) {
