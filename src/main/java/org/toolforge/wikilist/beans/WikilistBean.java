@@ -1,10 +1,10 @@
-package toolforge.wikilist.beans;
+package org.toolforge.wikilist.beans;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import toolforge.wikilist.WikiEntry;
-import toolforge.wikilist.services.WikilistService;
+import org.toolforge.wikilist.WikiEntry;
+import org.toolforge.wikilist.services.WikilistService;
 
 import java.util.List;
 

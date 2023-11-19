@@ -1,10 +1,10 @@
-package toolforge.wikilist.quarkus;
+package org.toolforge.wikilist.quarkus;
 
 import io.quarkus.arc.Unremovable;
 import io.quarkus.credentials.CredentialsProvider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-import toolforge.wikilist.MyCnfConfig;
+import org.toolforge.wikilist.MyCnfConfig;
 
 import java.io.IOException;
 import java.util.Map;

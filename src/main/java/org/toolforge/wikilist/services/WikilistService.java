@@ -1,11 +1,11 @@
-package toolforge.wikilist.services;
+package org.toolforge.wikilist.services;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import toolforge.wikilist.WikiEntry;
+import org.toolforge.wikilist.WikiEntry;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;

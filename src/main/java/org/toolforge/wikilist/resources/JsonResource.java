@@ -1,4 +1,4 @@
-package toolforge.wikilist.resources;
+package org.toolforge.wikilist.resources;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -6,7 +6,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import toolforge.wikilist.services.WikilistService;
+import org.toolforge.wikilist.services.WikilistService;
 
 import java.util.Date;
 

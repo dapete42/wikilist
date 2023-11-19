@@ -1,4 +1,4 @@
-package toolforge.wikilist;
+package org.toolforge.wikilist;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.servlet.ServletException;

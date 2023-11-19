@@ -1,4 +1,4 @@
-package toolforge.wikilist;
+package org.toolforge.wikilist;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

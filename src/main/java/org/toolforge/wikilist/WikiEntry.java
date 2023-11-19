@@ -1,4 +1,4 @@
-package toolforge.wikilist;
+package org.toolforge.wikilist;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
