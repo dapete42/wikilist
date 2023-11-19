@@ -62,7 +62,7 @@ public class WikilistService {
 
     private static WikiEntry fillLanguagesForDisplay(WikiEntry entry) {
         final String lang = entry.getLang();
-        final Locale entryLocale = new Locale(lang);
+        final Locale entryLocale = Locale.of(lang);
         String languageDisplay = entryLocale.getDisplayLanguage(Locale.ENGLISH);
         String languageNative = entryLocale.getDisplayLanguage(entryLocale);
         if (languageNative.equalsIgnoreCase(languageDisplay)) {
