@@ -1,6 +1,6 @@
 package org.toolforge.wikilist;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +25,7 @@ public class WikiEntry {
 
     private final String url;
 
-    @JsonProperty("is_closed")
+    @JsonbProperty("is_closed")
     private Boolean isClosed;
 
     private String languageDisplay;

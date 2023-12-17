@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="res/wikilist.css"/>
+    <title>Wikilist</title>
+</head>
+<body>
+<div class="colmask leftmenu">
+    <div class="colright">
+        <div class="col1wrap">
+            <div class="col1">
+                <header>
+                    <h1>Wikilist</h1>
+                </header>
+                <table>
+                    <thead>
+                    <tr>
+                        <th rowspan="2" scope="col">dbname</th>
+                        <th rowspan="2" scope="col">Family</th>
+                        <th colspan="3" scope="colgroup">Language</th>
+                        <th rowspan="2" scope="col">Name<br/>(in wiki language)</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">code</th>
+                        <th scope="col">in English</th>
+                        <th scope="col">in wiki language</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {#for entry in wikiEntries}
+                    <tr>
+                        <td>{entry.dbname}</td>
+                        <td>{entry.family}</td>
+                        <td>{entry.lang}</td>
+                        <td>{entry.languageDisplay}</td>
+                        <td>{entry.languageNative}</td>
+                        <td>{entry.name}</td>
+                    </tr>
+                    {/for}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col2">
+            <div id="logo">
+                <div>
+                    <a href="//tools.wmflabs.org/">
+                        <img src="//tools-static.wmflabs.org/toolforge/logos/logo-with-text.png"
+                             alt="Wikimedia Toolforge" height="125" width="125"/>
+                    </a>
+                </div>
+            </div>
+            <strong>Links</strong>
+            <ul>
+                <li>
+                    <a href="https://github.com/dapete42/wikilist">dapete42/wikilist</a> (GitHub)
+                </li>
+                <li>
+                    <a href="https://github.com/dapete42/wikilist-deployed">dapete42/wikilist-deployed</a> (GitHub)
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

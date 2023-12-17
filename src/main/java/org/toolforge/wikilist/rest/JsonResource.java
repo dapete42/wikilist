@@ -1,4 +1,4 @@
-package org.toolforge.wikilist.resources;
+package org.toolforge.wikilist.rest;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
