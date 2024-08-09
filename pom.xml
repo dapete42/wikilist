@@ -27,7 +27,8 @@
         <maven.compiler.release>21</maven.compiler.release>
 
         <skipITs>true</skipITs>
-        <quarkus.package.type>uber-jar</quarkus.package.type>
+        <quarkus.package.jar.enabled>true</quarkus.package.jar.enabled>
+        <quarkus.package.jar.type>uber-jar</quarkus.package.jar.type>
 
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
