@@ -20,8 +20,15 @@ public class IndexResource {
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get() {
+    public TemplateInstance getRoot() {
         return index.data("wikiEntries", wikilistService.getWikiEntries());
+    }
+
+    @GET
+    @Path("html")
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance getHtml() {
+        return getRoot();
     }
 
 }

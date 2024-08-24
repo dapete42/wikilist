@@ -80,10 +80,6 @@
             <artifactId>quarkus-rest-qute</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-servlet</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.slf4j</groupId>
             <artifactId>slf4j-jboss-logmanager</artifactId>
         </dependency>
