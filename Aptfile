@@ -1,0 +1,7 @@
+build-essential
+libz-dev
+zlib1g-dev
+# sdkman
+curl
+unzip
+zip
