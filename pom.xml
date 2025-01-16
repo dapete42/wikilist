@@ -29,6 +29,7 @@
         <skipITs>true</skipITs>
         <quarkus.package.jar.enabled>true</quarkus.package.jar.enabled>
         <quarkus.package.jar.type>uber-jar</quarkus.package.jar.type>
+        <quarkus.native.enabled>true</quarkus.native.enabled>
 
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
@@ -100,6 +101,11 @@
                             <goal>generate-code</goal>
                             <goal>generate-code-tests</goal>
                         </goals>
+                        <configuration>
+                            <systemProperties>
+                                <GRAALVM_HOME>${env.HOME}/.sdkman/candidates/java/21-graalce/</GRAALVM_HOME>
+                            </systemProperties>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -130,5 +136,41 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>heroku-build</id>
+            <activation>
+                <file>
+                    <!--
+                        This file will only exist if this project has been checked out to /workspace/, which most likely
+                        means a Heroku build is building the project right now.
+                    -->
+                    <exists>/workspace/bin/install-graalvm.sh</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <id>validate-heroku</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>bin/install-graalvm.sh</executable>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
