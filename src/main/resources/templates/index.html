@@ -30,12 +30,12 @@
                     <tbody>
                     {#for entry in wikiEntries}
                     <tr>
-                        <td>{entry.dbname}</td>
-                        <td>{entry.family}</td>
-                        <td>{entry.lang}</td>
-                        <td>{entry.languageDisplay}</td>
-                        <td>{entry.languageNative}</td>
-                        <td>{entry.name}</td>
+                        <td>{entry.dbname??}</td>
+                        <td>{entry.family??}</td>
+                        <td>{entry.lang??}</td>
+                        <td>{entry.languageDisplay??}</td>
+                        <td>{entry.languageNative??}</td>
+                        <td>{entry.name??}</td>
                     </tr>
                     {/for}
                     </tbody>
