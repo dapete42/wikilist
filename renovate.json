@@ -30,6 +30,11 @@
       "matchManagers": ["maven","gradle"],
       "matchDepNames": ["org.projectlombok:lombok"],
       "automerge": true
+    },
+    {
+      "description": "Automerge default Maven plugin updates",
+      "matchDepNames": ["org.apache.maven.plugins:*"],
+      "automerge": true
     }
   ]
 }
