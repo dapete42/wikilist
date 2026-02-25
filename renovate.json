@@ -35,6 +35,15 @@
       "description": "Automerge default Maven plugin updates",
       "matchDepNames": ["org.apache.maven.plugins:*"],
       "automerge": true
+    },
+    {
+      "description": "Limit Quarkus updates to 3.33 LTS version",
+      "matchManagers": ["maven","gradle"],
+      "matchDepNames": [
+        "io.quarkus.platform:quarkus-bom",
+        "io.quarkus.platform:quarkus-maven-plugin"
+      ],
+      "allowedVersions": "<3.34"
     }
   ]
 }
