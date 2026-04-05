@@ -47,5 +47,10 @@
       "separateMinorPatch": true,
       "allowedVersions": "<3.34"
     }
-  ]
+  ],
+  "osvVulnerabilityAlerts": true,
+  "dependencyDashboardOSVVulnerabilitySummary": "unresolved",
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  }
 }
