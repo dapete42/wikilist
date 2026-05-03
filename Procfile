@@ -1,1 +1,1 @@
-web: java -jar target/wikilist-runner.jar
+web: java -XX:+UseCompactObjectHeaders -jar target/wikilist-runner.jar
